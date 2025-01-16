@@ -1,17 +1,17 @@
 apiVersion: theme.halo.run/v1alpha1
 kind: Theme
 metadata:
-  name: theme-ocean
+  name: theme-ocean-enterprise
 spec:
   displayName: Ocean
   author:
-    name: halo-dev
-    website: https://halo.run
-  description: Knowledgebase theme of Halo 2.0
+    name: squaresum
+    website: https://sdfbee.com
+  description: A enterprise website theme, modified from theme-ocean.
   logo: https://halo.run/logo
-  website: https://github.com/f2ccloud/theme-ocean
-  repo: https://github.com/f2ccloud/theme-ocean.git
-  settingName: "theme-ocean-setting"
-  configMapName: "theme-ocean-configMap"
-  version: 1.5.0
+  website: https://github.com/kwadraten/theme-ocean-enterprise
+  repo: https://github.com/kwadraten/theme-ocean-enterprise.git
+  settingName: "theme-ocean-enterprise-setting"
+  configMapName: "theme-ocean-enterprise-configMap"
+  version: 1.0.0
   require: ">=2.20.0"
