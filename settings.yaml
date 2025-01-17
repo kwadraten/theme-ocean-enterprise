@@ -385,7 +385,7 @@ spec:
         - $formkit: attachment
           name: logo
           label: Logo
-          help: 如果不设置，将使用站点设置的 Logo
+          help: 与原版Ocean不同，页脚不会默认使用站点logo
 
         - $formkit: text
           name: title

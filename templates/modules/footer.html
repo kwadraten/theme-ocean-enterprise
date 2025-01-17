@@ -6,8 +6,8 @@
           <div class="... flex flex-row">
             <div>
               <img
-                th:if="${not #strings.isEmpty(theme.config.footer.logo)} or ${not #strings.isEmpty(site.logo)}"
-                th:src="${theme.config.footer.logo ?: site.logo}"
+                th:if="${not #strings.isEmpty(theme.config.footer.logo)}"
+                th:src="${theme.config.footer.logo}"
                 class="mr-3 h-16 w-16 text-zinc-600 dark:text-zinc-200"
                 th:alt="${site.title}"
               />
