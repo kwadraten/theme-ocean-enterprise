@@ -90,24 +90,7 @@ spec:
           key: header_background_image
           label: Banner背景图片
           value: /themes/theme-ocean-enterprise/assets/images/default-background.png
-        - $formkit: radio
-          name: search_method
-          value: page
-          label: 搜索形式
-          options:
-            - label: 页面
-              value: page
-            - label: 弹窗
-              value: popup
-            - label: 隐藏
-              value: none
-        - $formkit: tagCheckbox
-          name: tags
-          id: tags
-          key: tags
-          label: 热门查询
-          help: "选择多于三个标签，自动隐藏超出标签"
-                
+           
     - group: index
       label: 首页
       formSchema:
@@ -419,12 +402,22 @@ spec:
               name: name
               label: 菜单
               validation: "required"
-              
+
         - $formkit: attachment
           if: "$get(style).value === style_4"
           name: qrcode
           label: Qrcode
           help: 关注二维码
+
+        - $formkit: text
+          name: copyright_begin
+          label: 版权起始年份
+          help: 如果设置本项，会显示为“起始年份-当前年份"的形式
+
+        - $formkit: text
+          name: copyright_holder
+          label: 网站版权持有者
+          help: 如果留空，则默认使用站点名
 
         - $formkit: repeater
           name: social_media

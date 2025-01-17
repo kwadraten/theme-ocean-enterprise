@@ -29,7 +29,7 @@
         <div class="items-top mb-6 flex flex-wrap" th:if="${not #lists.isEmpty(theme.config.footer.menus)}">
           <th:block th:each="menuName : ${theme.config.footer.menus}">
             <div
-              class="ml-auto w-full pt-6 sm:w-6/12 md:w-5/12 md:pl-4 xl:w-3/12"
+              class="mx-auto w-full pt-6 sm:w-6/12 md:w-5/12 md:pl-4 xl:w-3/12"
               th:with="menu = ${menuFinder.getByName(menuName.name)}"
             >
               <span
@@ -56,7 +56,7 @@
   <div>
     <hr class="my-6 border-zinc-200 dark:border-zinc-700 sm:mx-auto lg:my-8" />
     <div class="flex flex-wrap items-center justify-center font-light md:justify-between">
-      <div class="mx-auto w-full px-4 text-center md:w-4/12">
+      <div class="mx-auto w-full px-4 text-center">
         <span class="dark:hover:text-whit text-zinc-500 hover:text-zinc-900">
           <a
             href="https://beian.miit.gov.cn/"
@@ -68,8 +68,9 @@
         </span>
         <div class="xs:text-center text-sm font-light text-zinc-500 dark:text-zinc-300">
           Copyright ©
+          <th:block th:if="${theme.config.footer.copyright_begin ?: false}" th:text="|${theme.config.footer.copyright_begin} -|" />
           <th:block th:text="${#dates.format(new java.util.Date().getTime(), 'yyyy')}" />
-          <a href="/" class="hover:underline" th:text="${site.title}"></a>. All Rights Reserved. <br />Powered by
+          <a href="/" class="hover:underline" th:text="${theme.config.footer.copyright_holder ?: site.title}"></a>. All Rights Reserved. <br />Powered by
           <a href="https://halo.run" class="hover:underline" target="_blank">Halo</a>.
         </div>
       </div>
@@ -82,8 +83,8 @@
     <div class="mb-6 max-w-full md:mb-0 md:max-w-md">
       <a href="/" class="mb-6 flex items-center">
         <img
-          th:if="${not #strings.isEmpty(theme.config.footer.logo)} or ${not #strings.isEmpty(site.logo)}"
-          th:src="${theme.config.footer.logo ?: site.logo}"
+          th:if="${not #strings.isEmpty(theme.config.footer.logo)}"
+          th:src="${theme.config.footer.logo}"
           class="mr-3 h-8"
           th:alt="${site.title}"
         />
@@ -126,8 +127,9 @@
   <div class="container mx-auto sm:flex sm:items-center sm:justify-between">
     <span class="text-sm text-zinc-500 dark:text-zinc-300 sm:text-center">
       ©
+      <th:block th:if="${theme.config.footer.copyright_begin ?: false}" th:text="|${theme.config.footer.copyright_begin} -|" />
       <th:block th:text="${#dates.format(new java.util.Date().getTime(), 'yyyy')}" />
-      <a href="/" class="hover:underline" th:text="${site.title}"></a>. All Rights Reserved. Powered by
+      <a href="/" class="hover:underline" th:text="${theme.config.footer.copyright_holder ?: site.title}"></a>. All Rights Reserved. Powered by
       <a href="https://halo.run" class="hover:underline" target="_blank">Halo</a>.
     </span>
     <div
@@ -150,8 +152,8 @@
   <div class="container mx-auto sm:flex sm:items-center sm:justify-between">
     <a href="/" class="mb-4 flex items-center justify-center sm:mb-0 sm:justify-start">
       <img
-        th:if="${not #strings.isEmpty(theme.config.footer.logo)} or ${not #strings.isEmpty(site.logo)}"
-        th:src="${theme.config.footer.logo ?: site.logo}"
+        th:if="${not #strings.isEmpty(theme.config.footer.logo)}"
+        th:src="${theme.config.footer.logo}"
         class="mr-3 h-8 w-8"
         th:alt="${site.title}"
       />
@@ -185,8 +187,9 @@
   </span>
   <span class="container mx-auto block text-center text-sm text-zinc-500 dark:text-zinc-300">
     ©
+    <th:block th:if="${theme.config.footer.copyright_begin ?: false}" th:text="|${theme.config.footer.copyright_begin} -|" />
     <th:block th:text="${#dates.format(new java.util.Date().getTime(), 'yyyy')}" />
-    <a href="/" class="hover:underline" th:text="${site.title}"></a>. All Rights Reserved. Powered by
+    <a href="/" class="hover:underline" th:text="${theme.config.footer.copyright_holder ?: site.title}"></a>. All Rights Reserved. Powered by
     <a href="https://halo.run" class="hover:underline" target="_blank">Halo</a>.
   </span>
 </footer>
@@ -201,8 +204,8 @@
           <div class="grid grid-cols-12 gap-2">
             <div class="col-span-2" >
               <img
-                th:if="${not #strings.isEmpty(theme.config.footer.logo)} or ${not #strings.isEmpty(site.logo)}"
-                th:src="${theme.config.footer.logo ?: site.logo}"
+                th:if="${not #strings.isEmpty(theme.config.footer.logo)}"
+                th:src="${theme.config.footer.logo}"
                 class=" h-16 w-16"
                 th:alt="${site.title}"
               />
@@ -224,7 +227,7 @@
         <div class="items-top mb-6 flex flex-wrap" th:if="${not #lists.isEmpty(theme.config.footer.menus)}">
           <th:block th:each="menuName : ${theme.config.footer.menus}">
             <div
-              class="ml-auto w-full sm:w-6/12 md:w-5/12 md:pl-4 xl:w-3/12"
+              class="mx-auto w-full sm:w-6/12 md:w-5/12 md:pl-4 xl:w-3/12"
               th:with="menu = ${menuFinder.getByName(menuName.name)}"
             >
               <span
@@ -257,8 +260,8 @@
   <hr class="my-6 border-slate-700 sm:mx-auto lg:my-8" />
   <div>
     <div class="flex flex-wrap items-center justify-center font-light md:justify-between">
-      <div class="mx-auto w-full px-4 text-center md:w-4/12">
-        <span class="dark:hover:text-whit hover:text-zinc-900 text-sm font-light text-[#adb5bd] sm:text-center">
+      <div class="mx-auto w-full px-4 text-center">
+        <span class="dark:hover:text-whit hover:text-zinc-100 text-sm font-light text-[#adb5bd] sm:text-center">
           <a
             href="https://beian.miit.gov.cn/"
             class="hover:underline"
@@ -269,8 +272,9 @@
         </span>
         <div class="text-sm text-[#adb5bd] sm:text-center font-light dark:text-zinc-300">
           Copyright ©
+          <th:block th:if="${theme.config.footer.copyright_begin ?: false}" th:text="|${theme.config.footer.copyright_begin} -|" />
           <th:block th:text="${#dates.format(new java.util.Date().getTime(), 'yyyy')}" />
-          <a href="/" class="hover:underline" th:text="${site.title}"></a>. All Rights Reserved. <br />Powered by
+          <a href="/" class="hover:underline" th:text="${theme.config.footer.copyright_holder ?: site.title}"></a>. All Rights Reserved. <br />Powered by
           <a href="https://halo.run" class="hover:underline" target="_blank">Halo</a>.
         </div>
       </div>
