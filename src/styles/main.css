@@ -80,4 +80,7 @@ body {
   width: 100%;
 }
 
-/*a标签增加指上下划线*/
+/* 增加文字描边效果 */
+.text-border {
+  text-shadow: 1px 1px 0 black, -1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black;
+}
