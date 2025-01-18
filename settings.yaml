@@ -368,7 +368,7 @@ spec:
         - $formkit: attachment
           name: logo
           label: Logo
-          help: 与原版Ocean不同，页脚不会默认使用站点logo
+          help: 与原版Ocean不同，页脚不会默认使用站点logo，并建议使用正方形logo，否则有奇怪拉伸
 
         - $formkit: text
           name: title
@@ -407,7 +407,7 @@ spec:
           if: "$get(style).value === style_4"
           name: qrcode
           label: Qrcode
-          help: 关注二维码
+          help: 关注二维码，仅对风格四起效
 
         - $formkit: text
           name: copyright_begin
@@ -420,8 +420,10 @@ spec:
           help: 如果留空，则默认使用站点名
 
         - $formkit: repeater
+          if: "$get(style).value === style_2"
           name: social_media
           label: 社交媒体
+          help: 本处的设置仅对风格二起效，其他风格没有实现这一部分，如有需要请自行修改主题
           value: []
           children:
             - $formkit: select
